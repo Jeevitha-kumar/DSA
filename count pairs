@@ -1,3 +1,5 @@
+APPROACH USING BRUTEFORCE
+
 class Solution {
     public int countKDifference(int[] nums, int k) {
        int count=0;
@@ -11,4 +13,30 @@ class Solution {
         return count;
         
     }
+}
+
+APPROACH USING HASHMAP
+
+import java.util.HashMap;
+import java.util.Map;
+class Main{
+    public int countKDifference(int[] nums, int k) {
+        int count=0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
+            count+=map.getOrDefault(i+k,0)+map.getOrDefault(i-k,0);
+            
+            
+        }
+        return count;
+    
+}
+public static void main(String[] args){
+    int[] nums={1,2,2,1};
+    int k=1;
+    Main main= new Main();
+    int res=main.countKDifference(nums,k);
+    System.out.println(res);
+}
 }
