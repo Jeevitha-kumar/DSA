@@ -1,1 +1,17 @@
-
+class Solution {
+    public boolean hasMatch(String s, String p) {
+         String[] r =p.split("\\*");
+         int index=0;
+         for(String part:r){
+            if(part.isEmpty()){ // Skip empty parts (caused by consecutive '*' in the pattern)
+                continue;
+            }
+            index=s.indexOf(part,index);// Check if part is in 's' from the current index
+            if(index==-1){
+                return false;// Part not found in order
+            }
+            index+=part.length();// Move index forward
+         }
+         return true; // All parts matched in order
+}
+}
