@@ -1,7 +1,7 @@
 class Solution {
     public String kthDistinct(String[] arr, int k) {
         HashMap<String,Integer> hashmap= new HashMap<>();
-        for(String i: arr){
+        for(String i: arr){//for loop to iterate through strings
             hashmap.put(i,hashmap.getOrDefault(i,0)+1);
         }
         int count=0;
