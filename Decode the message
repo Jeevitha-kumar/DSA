@@ -1,1 +1,29 @@
 
+
+class Solution {
+    public String decodeMessage(String key, String message) {
+        HashMap<Character, Character> hashmap = new HashMap<>();
+        int k = 0;
+        StringBuilder decodedMessage = new StringBuilder();
+
+        // Populate the hashmap with the mapping from key
+        for (char ch : key.toCharArray()) {
+            if (ch != ' ' && !hashmap.containsKey(ch)) {
+                hashmap.put(ch, (char) ('a' + k));
+                k++;
+            }
+        }
+
+        // Decode the message
+        for (char ch : message.toCharArray()) {
+            if (ch == ' ') {
+                decodedMessage.append(' ');
+            } else {
+                decodedMessage.append(hashmap.get(ch));
+            }
+        }
+
+        return decodedMessage.toString();
+    }
+}
+
