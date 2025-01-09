@@ -1,10 +1,8 @@
-
-
 class Solution {
     public String decodeMessage(String key, String message) {
         HashMap<Character, Character> hashmap = new HashMap<>();
         int k = 0;
-        StringBuilder decodedMessage = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         // Populate the hashmap with the mapping from key
         for (char ch : key.toCharArray()) {
@@ -15,15 +13,14 @@ class Solution {
         }
 
         // Decode the message
-        for (char ch : message.toCharArray()) {
-            if (ch == ' ') {
-                decodedMessage.append(' ');
+        for (char h : message.toCharArray()) {
+            if (h == ' ') {
+                sb.append(' ');
             } else {
-                decodedMessage.append(hashmap.get(ch));
+                sb.append(hashmap.get(h));
             }
         }
 
-        return decodedMessage.toString();
+        return sb.toString();
     }
 }
-
