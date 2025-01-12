@@ -1,1 +1,24 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        // Create a HashMap to count the occurrences of each character
+        HashMap<Character, Integer> hashmap = new HashMap<>();
+        
+        // Count the occurrences of each character
+        for (char c : s.toCharArray()) {
+            hashmap.put(c, hashmap.getOrDefault(c, 0) + 1);
+        }
+
+        // Get the frequency of the first character
+        int frequency = hashmap.get(s.charAt(0));
+
+        // Check if all characters have the same frequency
+        for (int count : hashmap.values()) {
+            if (count != frequency) {
+                return false; // Return false if any count is different
+            }
+        }
+        
+        return true; // Return true if all counts are the same
+    }
+}
 
