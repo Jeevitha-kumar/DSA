@@ -1,1 +1,20 @@
+class Solution {
+    public int[] numberOfPairs(int[] nums) {
+           // Create a HashMap to count occurrences of each number
+        HashMap<Integer,Integer> hashmap= new HashMap<>();
+        int pairs=0;
+            // Count the occurrences of each number
+        for(int num:nums){
+            hashmap.put(num,hashmap.getOrDefault(num,0)+1);
+        }
+        int remaining=0;
+           // Calculate the number of pairs and leftovers
+        for(int count:hashmap.values()){
+            pairs+=count/2;
+            remaining+=count%2;
+        }
+        // Return the result as an array
+        return new int[] {pairs,remaining};
 
+    }
+}
