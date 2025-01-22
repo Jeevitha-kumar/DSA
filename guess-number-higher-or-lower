@@ -1,1 +1,24 @@
+public class Solution extends GuessGame {
+    public int guessNumber(int n) {
+        int l=1;
+        int r=n;
+        int m=0;
+       
+        while(l<=n){
+             m=l+(r-l)/2;
+            if(guess(m)==0){
+                return m;
+            }
+            else if(guess(m)==1){
+                l=m+1;
 
+            }
+            else{
+               r=m-1;
+            }
+        }
+        return -1;
+        
+        
+    }
+}
