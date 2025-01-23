@@ -1,1 +1,21 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int max = 0; // To store the maximum wealth
+        
+        // Iterate over each customer's accounts
+        for (int row = 0; row < accounts.length; row++) {
+            int currentWealth = 0; // To calculate wealth for the current customer
+            
+            // Sum all the accounts of the current customer
+            for (int col = 0; col < accounts[row].length; col++) {
+                currentWealth += accounts[row][col];
+            }
+            
+            // Update the maximum wealth if the current customer's wealth is higher
+            max = Math.max(max, currentWealth);
+        }
+        
+        return max;
+    }
+}
 
